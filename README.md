@@ -21,7 +21,14 @@ ABC Metrics provide a quantitative measure of code complexity:
 - **High** (20-40): Complex code that may need refactoring
 - **Very High** (> 40): Overly complex code that should be refactored
 
+## Prerequisites
+
+- Go 1.22 or higher
+- Git (for cloning the repository)
+
 ## Installation
+
+### From Source
 
 ```bash
 # Clone the repository
@@ -32,6 +39,36 @@ cd abc-metrics
 
 # Build the project
 go build -o abc ./cmd/abc
+```
+
+### Build Options
+
+```bash
+# Build with custom output name
+go build -o my-abc ./cmd/abc
+
+# Build for different platforms
+# Linux
+GOOS=linux GOARCH=amd64 go build -o abc ./cmd/abc
+
+# macOS
+GOOS=darwin GOARCH=amd64 go build -o abc ./cmd/abc
+
+# Windows
+GOOS=windows GOARCH=amd64 go build -o abc.exe ./cmd/abc
+```
+
+### Development Build
+
+```bash
+# Install dependencies
+go mod download
+
+# Run tests
+go test ./...
+
+# Run the application directly without building
+go run ./cmd/abc analyze -f path/to/your/file.go
 ```
 
 ## Usage
